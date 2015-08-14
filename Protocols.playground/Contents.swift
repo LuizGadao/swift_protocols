@@ -60,6 +60,39 @@ class SalariedEmployee:Employee{
 }
 
 
+//Vehicle PROTOCOL
+protocol Brakeable {
+    var brakes: String { get }
+    func stop()
+    func slamOnBrakes()
+}
+
+protocol Drivable {
+    var steeringWheel: String { get }
+    var tires: String { get set }
+    func startEngine()
+    func stopEngine()
+    func turnLeft()
+    func turnRight()
+    func reverse()
+}
+
+protocol Vehicle: Brakeable, Drivable {
+    var numberOfSeats: Int { get }
+}
+
+protocol Car: Brakeable, Drivable{
+    var numberOfDoors: Int { get set }
+}
+func registerForRace(vehicle:protocol<Drivable, Brakeable>){
+    print("start the race!")
+}
+
+import UIKit
+
+let collectionViewLayout = UICollectionViewLayout()
+let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: collectionViewLayout)
+
 
 
 
